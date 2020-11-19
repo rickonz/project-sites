@@ -1,28 +1,11 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 title: Rickon Zhang
 email: rickon.zhang@gmail.com
-url: "https://rickonz.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://rickonz.github.io" 
+description: > # this means to ignore newlines until "show_exerpts:"
+  Welcome to my blog!
+show_excerpts: true # set to true to show excerpts on the homepage
+
 markdown: kramdown
-github_username:  rickonz
 github: [metadata]
 
 # Build settings
@@ -30,20 +13,23 @@ remote_theme: thelehhman/texture
 theme: texture
 plugins:
   - jekyll-feed
-
+  
+permalink: /posts/:title/
 texture:
   title: Rickon Zhang
   tagline: Developer. Designer
   date_format: "%b %-d, %Y"
-  style: [black]
-  showPicker: [false]
+  style: black
+  showPicker: false
   analytics_id: ''
   showNav: true
   navigation: 
     - title: My Work
-      url: "/my-work"
+      url: "https://rickonz.github.io/my-work"
     - title: Resume
-      url: "/resume"
+      url: "https://rickonz.github.io/resume"
+    - title: About
+      url "https://rickonz.github.io/about"
 
   social_links:
     github:  rickonz
