@@ -28,6 +28,8 @@ texture:
       url: "https://rickonz.github.io"
     - title: About
       url: "/about"
+    - title: Resume
+      url: "/resume"
   
 
   social_links:
