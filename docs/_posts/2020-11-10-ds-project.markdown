@@ -67,53 +67,57 @@ Next we will apply logistic regression model for determining the *status*, since
 #### 4.1 What factors play important roles in employment?
 We begin our analysis by first looking at the distribution of students in different areas of study and genders. From Figure 1, we can see that males students are two times more than females students in our data set. The popularity of different degrees tends to be the same among both males and females. In undergraduate, almost 70 percent of the students study 'Comm&Mgmt', and the most of the rest of students are in Sci&Tech. In MBA, the number of students in MktGFin are about 10 percent higher than those in Mkt&HR field.
 
---- visualization (3).png ---
+--- Areas of Study by Gender - visualization (3).png ---
 
 Then, we take a look at the employability. It is conducted by college to imply students’ probability of being applied. From figure 2, we indeed see the students who got employed have higher median employability, but the employability of both placed and unplaced students spans  approximately the same range. So the employability matters for actual placement, but the effect is very significant.
 
---- visualization (4).png ---
+--- Employability - visualization (4).png ---
 
 Another interesting factor is work experience. It is clearly seen in figure 3 that the proportion of unplaced students is significantly lower among those who have previous work experience compared to students who do not have work experience. However, the proportion of students with work experience is  smaller than students without experience.
 
---- visualization (5).png --- 
+--- Work Experience v.s. Placement - visualization (5).png --- 
 
 Does gender play a role? To some degree. Figure 4 shows that the proportion for placed students in male is about 10 percent greater than that in females.
 
---- visualization (6).png ---
+--- Placement in Gender - visualization (6).png ---
 
 We can also observe that students study *Mkt&Fin* in MBA are more likely to be employed than those who study *Mkt&HR*; and the proportion students being employed in *Comm&Mgmt* and *Sci&Tech* area in undergraduate do not have a significance, but others degree have a significant lower rate of placement.
 
---- visualization (7).png --- 
+--- Placement Proportion in Areas of Study - visualization (7).png --- 
 
 As shown in figure 6, higher bachelor's percentage indicates more likelihood of placement, whereas MBA percentage does not distinguish too much between placed and unplaced student.
+
+--- Percentage v.s. Placement - visualization (9).png --- 
+
+From the above visualization, we observe that work experience, areas of study in undergraduate and MBA and bacholer's percentage show more importance in the placement of employment.
 
 #### 4.2 How does degree and percentage related to salary?
 Next, we continue to examine the factors that influence the salary. From figure 7 and 8, we do not see areas of study and percentage in undergraduate and MBA an effect on salary, since the bar graph reflect generally same amount of mean salary for each areas of study and the scatter plot does not show an obvious linear relationship between salary and both percentage. However, an interesting to notice in scatter plot is that there are a few outliers in scatter plot with very high salary. A few males students with low percentage in bachelor's MBA percentage but high salary. A few females with high bachelor's and MBA percentage but do not stand out in salary.
 
---- visualization (12).png ---
---- visualization (10).png ---
+--- Areas of Study v.s. Average Salary - visualization (12).png ---
+--- Percentage v.s. Salary v.s Gender - visualization (10).png ---
 
 #### 4.3 Can we predict a student’s salary?
 Since we do not observe significant pattern related to salary visually, we then use principle component analysis to find out if there is influential factor on salary. After using one hot encoding, we transform all the categorical variables into binary form. Then we use singular value decomposition with salary as the target variable with principle components number set to 5, and plot the first 2 principle components as oppose to target variable, salary.
 
---- visualization (14).png ---
+--- PC1, PC2 v.s. Target Variable - visualization (14).png ---
 
 The result as shown in figure 9 does not show a obvious pattern between our computed principle components and target variable. So we then computed the explained variance of each principle components. We see from figure 10 that all of the 5 principle components explain a very low variance of our target variable, which indicates we are unable to find significant predictors through principle components analysis. 
 
---- visualization (15).png --- 
+--- Explained Variance by Principle Components - visualization (15).png --- 
 
 Therefore, we check the correlation matrix to find out the exact correlation. As in figure 11, the absolute value of correlation between all variables and salary is lower than 0.2, which means that there is weak linear relationship. Therefore, we would most likely not getting accurate prediction with linear regression on this topic. 
 
---- visualization (13).png ---
+--- Explained Variance by Principle Components - visualization (13).png ---
 
 However, we could still try to fit a multiple linear regression model to examine the fit and loss. We first exclude the outliers that we see in figure 8. To do this, we only use the student data with a salary of 600,000 or below. After fitting the model, we computed the loss by average squared error and get a value of 3320467395 which is very larger, and our plot of predicted value v.s. true value also shows that fitting linear regression model would not be ideal in this case.
 
---- visualization (21).png ---
+--- Fitted v.s. True value -  visualization (21).png ---
 
 #### 4.4 Can we predict the placement of a student?
 However, we indeed find some factors that are influencing the likelihood of being employed. Thus, we could apply logistic regression to predict placement status of students. From what we learned from 5.1, we choose bachelor's degree percentage, work experience, gender, bachelor's degree type and MBA specialization as our predictors, and status as target variables. Using logistic regression model in sci-kit learn package to fit our data, we are able to get the result confusion matrix [[ 19,  48],[  9, 139]]). We compute the probability of four kinds of result in confusion matrix and plot a heat map as figure 12 where we can visualize it more clearly. In this model, we have probability of 0.26 in true negative, 0.05 in false negative, 0.16 in false positive and 0.53 in true positive result. In general, our model is of approximately 79 percent accuracy, which predict most placement correctly. 
 
---- visualization (19).png ---
+--- Comfusion Matrix - visualization (19).png ---
 
 ### 5. Conclusion and Future Work
 From the analysis above, we discover that several factors are having effect on the placement of employment to different degree. The factors that have most influence are *work experience*. Those who have previous working experience are significantly of more likelihood to be employed; the bachelor's degree percentage also plays some role, but in MBA this factors does not distinguish anymore. This shows the importance of accumulating practical experience outside from the coursework.  
@@ -129,5 +133,9 @@ To further proceed the result we have achieved, it would be helpful to apply the
 *Another very important note is pay attention to the relationship between count and proportion of the variable in a given set, since the visualization would give completely different result, which could be deceiving. The example is Figure 4, initially I plot the grouped bar chart that show the number, which seem that male has a significant advantage in getting job. However, after plotting a proportion graph relative to the size of their own group, the difference is not that noticeable. The previous distinction is largely due to the size of male it self is greater than the size of female. (graph in appenix)
 
 ### 6. Appendix
-- 
+- [Python Notebook](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/ds100-placement/ds-project.ipynb)
+
+--- Salary Distribution by Gender - visualization (24).png ---
+--- Salary Distribution by Bachelor's Degree - visualization (25).png ---
+--- Scatterplot matrix - visualization (28).png --- 
 
