@@ -1,5 +1,4 @@
 ---
-layout: page
 title: About
 permalink: https://rickonz.github.io/about
 ---
