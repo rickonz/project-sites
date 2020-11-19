@@ -36,20 +36,20 @@ names(dat)
 pairs(dat[c(4,1,2,3,5,6,7,8)], cex=0.4) #scatterplot matrix
 cor(dat)
 ```
-![plot01](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot01.png?raw=true)
+![plot01](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/image/plot01.png?raw=true)
 
 Secondly, we perform variable selection using stepwise regression, including AIC and partial F test, and the best subsets regression to determine the predictors. The results of our AIC test, partial F test, and adjusted $R^2$ criterion chooses four predictors: *Murder*, *HS Grad*, *Frost*, and *Population*. The Mallows’ $C_p$ criterion gives similar result except excluding the fourth predictor *Population*. Therefore, we decide our model to be ***Life Exp ~ Murder + HS Grad + Frost + Population***.  
 
 #### 3.2 Diagnostic Checks and Transformation
 Thirdly, we check the LINE conditions for this model. We will not be checking the independence assumption, since we are not given data related to time order.  
 
-![plot08](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot08.png?raw=true)
-![plot06](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot06.png?raw=true)
+![plot08](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/image/plot08.png?raw=true)
+![plot06](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/image/plot06.png?raw=true)
 
 The Residual v.s. Fitted plot shows that residuals “bounce randomly” and roughly form a “horizontal band” around the $y=0$ line. However, when looking at the “Residuals vs Predictor” plot, and see a strong funneling effect for the “Residuals v.s. Population” plot. Since a log function has the ability to “spread out” smaller values and bring in larger ones, we will perform log transformation on *Population*. Our model is now *Life Exp ~ Murder + HS Grad + Frost + log(Population)* Then we check our LINE conditions again.  
 
-![plot09](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot09.png?raw=true)
-![plot07](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot07.png?raw=true)
+![plot09](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/image/plot09.png?raw=true)
+![plot07](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/image/plot07.png?raw=true)
 
 The “Residuals vs Predictor” plot for *log(Population)* is well-behaved now. The "Residual v.s. Fit" plot and Normal Q-Q plot are both well-behaved. There are no unequal variance or nonlinearity problems.
 Our final step is checking for outliers and leverage. After computing for both internally
@@ -97,8 +97,4 @@ In conclusion, we are able to predict the mean life expectancy of people in a U.
 Given that the size of the dataset is limited (including only statistics from each state), the accuracy could be improved if we are able to draw more data by smaller region, for example, census by county. It would also be helpful if we could draw more possible related predictors into the dataset, for example, the elevation of the region, unemployment rate, healthcare coverage, air quality, etc. We should also note that the data we draw is from the US census in 1977, which means that necessary adjustment is needed with updated data for contemporary prediction.
 
 ### 5. Appendix
-
-```{r}
-
-
-```
+[appendix.R]((https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/appendix.R?raw=true))
