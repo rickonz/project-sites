@@ -28,7 +28,7 @@ markdown: kramdown
 github_username:  rickonz
 
 # Build settings
-theme: cayman
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
 
