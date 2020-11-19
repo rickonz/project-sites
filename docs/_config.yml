@@ -10,7 +10,6 @@ github: [metadata]
 
 # Build settings
 remote_theme: thelehhman/texture
-theme: texture
 plugins:
   - jekyll-feed
   
