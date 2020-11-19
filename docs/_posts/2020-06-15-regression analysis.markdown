@@ -43,11 +43,13 @@ Secondly, we perform variable selection using stepwise regression, including AIC
 #### 3.2 Diagnostic Checks and Transformation
 Thirdly, we check the LINE conditions for this model. We will not be checking the independence assumption, since we are not given data related to time order.  
 
-![plot]()
+![plot08](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot08.png?raw=true)
+![plot06](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot06.png?raw=true)
 
 The Residual v.s. Fitted plot shows that residuals “bounce randomly” and roughly form a “horizontal band” around the $y=0$ line. However, when looking at the “Residuals vs Predictor” plot, and see a strong funneling effect for the “Residuals v.s. Population” plot. Since a log function has the ability to “spread out” smaller values and bring in larger ones, we will perform log transformation on *Population*. Our model is now *Life Exp ~ Murder + HS Grad + Frost + log(Population)* Then we check our LINE conditions again.  
 
----- graph here ---- 
+![plot09](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot09.png?raw=true)
+![plot07](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot07.png?raw=true)
 
 The “Residuals vs Predictor” plot for *log(Population)* is well-behaved now. The "Residual v.s. Fit" plot and Normal Q-Q plot are both well-behaved. There are no unequal variance or nonlinearity problems.
 Our final step is checking for outliers and leverage. After computing for both internally
