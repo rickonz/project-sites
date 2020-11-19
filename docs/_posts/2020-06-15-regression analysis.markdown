@@ -3,7 +3,7 @@ layout: post
 title:  "Regression Analysis on U.S. Life Expectancy"
 description: ''
 date:   2020-06-15 00:00:00 +0000
-categories: Multi-Linear-Regression
+categories: Projects
 ---
 
 This project focuses on studying the prediction of life expectancy in the United States based on the dataset ***state.x77*** in R library, which is derived from the U.S. Department of Commerce,
