@@ -97,4 +97,4 @@ In conclusion, we are able to predict the mean life expectancy of people in a U.
 Given that the size of the dataset is limited (including only statistics from each state), the accuracy could be improved if we are able to draw more data by smaller region, for example, census by county. It would also be helpful if we could draw more possible related predictors into the dataset, for example, the elevation of the region, unemployment rate, healthcare coverage, air quality, etc. We should also note that the data we draw is from the US census in 1977, which means that necessary adjustment is needed with updated data for contemporary prediction.
 
 ### 5. Appendix
-[appendix.R]((https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/appendix.R?raw=true))
+   - [appendix.R](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/appendix.R)
