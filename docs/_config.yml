@@ -22,15 +22,17 @@ title: Rickon Zhang
 email: rickon.zhang@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Welcome to my blog!
-baseurl: "" # the subpath of your site, e.g. /blog
+#baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rickonz.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 markdown: kramdown
 github_username:  rickonz
+github: [metadata]
 
 # Build settings
 theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
