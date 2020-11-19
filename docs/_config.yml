@@ -20,18 +20,36 @@
 
 title: Rickon Zhang
 email: rickon.zhang@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to my blog!
-#baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rickonz.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 markdown: kramdown
 github_username:  rickonz
 github: [metadata]
 
 # Build settings
-theme: jekyll-theme-cayman
+remote_theme: thelehhman/texture
+theme: texture
 plugins:
   - jekyll-feed
+
+texture:
+  title: Rickon Zhang
+  tagline: Developer. Designer
+  date_format: "%b %-d, %Y"
+  style: [black]
+  showPicker: [false]
+  analytics_id: ''
+  showNav: true
+  navigation: 
+    - title: My Work
+      url: "/my-work"
+    - title: Resume
+      url: "/resume"
+
+  social_links:
+    github:  rickonz
+    linkedIn: in/wenxuan-zhang
+    instagram: xuanedx
+
 
 
 # Exclude from processing.
