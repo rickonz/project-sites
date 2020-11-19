@@ -43,7 +43,7 @@ Secondly, we perform variable selection using stepwise regression, including AIC
 #### 3.2 Diagnostic Checks and Transformation
 Thirdly, we check the LINE conditions for this model. We will not be checking the independence assumption, since we are not given data related to time order.  
 
----- graph here ----
+![plot]()
 
 The Residual v.s. Fitted plot shows that residuals “bounce randomly” and roughly form a “horizontal band” around the $y=0$ line. However, when looking at the “Residuals vs Predictor” plot, and see a strong funneling effect for the “Residuals v.s. Population” plot. Since a log function has the ability to “spread out” smaller values and bring in larger ones, we will perform log transformation on *Population*. Our model is now *Life Exp ~ Murder + HS Grad + Frost + log(Population)* Then we check our LINE conditions again.  
 
