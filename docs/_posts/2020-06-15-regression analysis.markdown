@@ -36,7 +36,7 @@ names(dat)
 pairs(dat[c(4,1,2,3,5,6,7,8)], cex=0.4) #scatterplot matrix
 cor(dat)
 ```
-![plot01]()
+![plot01](https://github.com/rickonz/rickonz.github.io/blob/master/image/plot01.png?raw=true)
 
 Secondly, we perform variable selection using stepwise regression, including AIC and partial F test, and the best subsets regression to determine the predictors. The results of our AIC test, partial F test, and adjusted $R^2$ criterion chooses four predictors: *Murder*, *HS Grad*, *Frost*, and *Population*. The Mallows’ $C_p$ criterion gives similar result except excluding the fourth predictor *Population*. Therefore, we decide our model to be ***Life Exp ~ Murder + HS Grad + Frost + Population***.  
 
@@ -59,7 +59,30 @@ the hat values, we find that none of the points has higher hat value than $\frac
 We are now able to observe our model with 4 predictors: *Murder*, *HS Grad*, *Frost*, *log(Population)*.
 ***Life Expectancy = −0.29*Murder + 0.0546*HSGrad − 0.051*Frost + 0.24*log(Population)***
 
----- code here ----
+```{r}
+> summary(mod.trans)
+
+Call:
+lm(formula = `Life Exp` ~ Murder + `HS Grad` + Frost + I(log(Population)))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.41760 -0.43880  0.02539  0.52066  1.63048 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        68.720810   1.416828  48.503  < 2e-16 ***
+Murder             -0.290016   0.035440  -8.183 1.87e-10 ***
+`HS Grad`           0.054550   0.014758   3.696 0.000591 ***
+Frost              -0.005174   0.002482  -2.085 0.042779 *  
+I(log(Population))  0.246836   0.112539   2.193 0.033491 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.7137 on 45 degrees of freedom
+Multiple R-squared:  0.7404,	Adjusted R-squared:  0.7173 
+F-statistic: 32.09 on 4 and 45 DF,  p-value: 1.17e-12
+```
 
 From the above summary table of our model, the adjusted $R^2$ is 0.7173, telling us that about 71.73% percent variation in life expectancy is explained by our model. Also, the associated p-value $1. 17e^{−12}$ of the whole model is very small, indicating our model is significant.  
 
