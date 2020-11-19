@@ -14,27 +14,25 @@ theme: texture
 plugins:
   - jekyll-feed
   
-permalink: /posts/:title/
+
 texture:
   title: Rickon Zhang
   tagline: Developer. Designer
   date_format: "%b %-d, %Y"
   style: black
   showPicker: false
-  analytics_id: ''
+  analytics_id: 'web@bottomlineucsb.com'
   showNav: true
   navigation: 
-    - title: My Work
-      url: "https://rickonz.github.io/my-work"
-    - title: Resume
-      url: "https://rickonz.github.io/resume"
+    - title: Home
+      url: "https://rickonz.github.io"
     - title: About
-      url "https://rickonz.github.io/about"
+      url: "/about"
+  
 
   social_links:
     github:  rickonz
     linkedIn: in/wenxuan-zhang
-    instagram: xuanedx
 
 
 
