@@ -16,7 +16,7 @@ Relevant Coursework:
 -  Time Series
 -  Advanced Linear Algebra
 -  Numerical Analysis
--  Partial Differential Equation
+-  Ordinary Differential Equation
 
 ## Experience
 
