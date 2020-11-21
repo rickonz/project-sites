@@ -36,7 +36,7 @@ Relevant Coursework:
 - Performed hardware and software troubleshooting in Windows and Mac environment
 - Assisted instructors through online help desk in using online teaching software such as Panopto, Zoom, Box, etc.
 
-**UCSB Orientation Program and Parent Services | Apr 2019 - Aug 2019 | Santa Barbara, CA**  
+**UCSB Orientation Program | Apr 2019 - Aug 2019 | Santa Barbara, CA**  
 *Orientation Leader*
 
 - Served as an official representative of the university
