@@ -70,5 +70,7 @@ Beijing Nuannuan Volunteering Group | Jun 2017 - Mar 2018 | Beijing, China
 - Communication: Extensive experience in effective and efficient communication with peers, parents, professors, and colleagues
 - Language: Native Chinese; Fluent in English; Basic Spanish
 
-[张文轩简历.pdf](https://github.com/rickonz/rickonz.github.io/blob/master/docs/%E5%BC%A0%E6%96%87%E8%BD%A9%E7%AE%80%E5%8E%86.pdf)
+## Appendix
+
+[张文轩简历.pdf](https://github.com/rickonz/rickonz.github.io/blob/master/docs/%E5%BC%A0%E6%96%87%E8%BD%A9%E7%AE%80%E5%8E%86.pdf)  
 [Rickon Zhang - Resume.pdf](https://github.com/rickonz/rickonz.github.io/blob/master/docs/RICKON(WENXUAN)%20ZHANG-%20Resume.pdfß)
