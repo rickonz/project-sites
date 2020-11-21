@@ -12,11 +12,11 @@ College of Letter Science Honors
 Relevant Coursework: 
 -  Regression Analysis
 -  Statistical Data Science
--  Bayesian Analysis
-- Time Series
+-  Bayesian Data Analysis
+-  Time Series
 -  Advanced Linear Algebra
-- Numerical Analysis
-- Partial Differential Equation
+-  Numerical Analysis
+-  Partial Differential Equation
 
 ## Experience
 
