@@ -16,7 +16,7 @@ plugins:
 
 texture:
   title: Rickon Zhang
-  tagline: ''
+  tagline: 'Developer. Designer'
   date_format: "%b %-d, %Y"
   style: black
   showPicker: false
