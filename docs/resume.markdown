@@ -56,7 +56,7 @@ Relevant Coursework:
 *Web Editor*
 
 - Analyzed user data and website usage through Google Analytics to monitor website performance, helping editorial board to make decisions on budgeting and advertising
-- Visualized local Covid-19 data through Tableau and integrated with the website, raising public awareness as well as providing local residents a reliable soures for tracking
+- Visualized local Covid-19 data through Tableau and integrated with the website, raising public awareness as well as providing local residents a reliable sources for tracking
 
 **Beijing Nuannuan Volunteering Group | Jun 2017 - Mar 2018 | Beijing, China**  
 *Volunteer Tutor*
