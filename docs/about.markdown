@@ -5,7 +5,8 @@ permalink: /about
 ---
 //
 //
-//
+//  
+
 Hi there,
 
 I'm Rickon Zhang, a 3rd-year math and stats student in UCSB. I like coffee, music, jiujistu, and data science. Here I share stuffs I found interesting. Hope you enjoy!
