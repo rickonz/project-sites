@@ -6,8 +6,6 @@ date:   2020-10-03 00:00:00 +0000
 categories: Projects
 ---
 
-![profile-photo](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/ds100-placement/image/front-image.jpg?raw=true)
-
 In this project, we analyze a campus recruitment data set to investigate the relationship in academic and career performance, by utilizing exploratory data analysis(EDA), principle components analysis(PCA), multiple linear regression and logistic regression.  
 
 we discovered work experience, bachelor's degree percentage and area of study are important factors in the placement of employment, and we can use logistic regression model to give accurate prediction based on these key predictors.
