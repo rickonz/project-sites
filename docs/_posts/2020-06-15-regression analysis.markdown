@@ -6,8 +6,6 @@ date:   2020-06-15 00:00:00 +0000
 categories: Projects
 ---
 
-![profile-photo](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/image/front-image.jpg?raw=true)
-
 This project focuses on studying the prediction of life expectancy in the United States based on the dataset ***state.x77*** in R library, which is derived from the U.S. Department of Commerce,
 Bureau of the Census (1977) *Statistical Abstract of the United States*.  
 
