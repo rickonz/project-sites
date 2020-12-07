@@ -20,7 +20,7 @@ texture:
   date_format: "%b %-d, %Y"
   style: black
   showPicker: false
-  analytics_id: 'web@bottomlineucsb.com'
+  analytics_id: '65691107'
   showNav: true
   navigation: 
     - title: Home
