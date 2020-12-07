@@ -28,7 +28,7 @@ Can we predict life expectancy of a region given its population, income, illiter
 We will approach this question first by applying stepwise and best subsets regression on the 7 potential predictors to determine the best model. Then we will check LINE conditions on this model using residual analysis. If any of the assumptions are not met, we will transform the data and check LINE conditions for the new model. After fitting the model with transformed data, we will interpret our model and summarize our findings.  
 
 ### 3. Regression Analysis, Results and Interpretation
-#### 3.1 Variable Selection
+#### **3.1 Variable Selection**
 First, we look at the scatterplot matrix to gain some insight on the relationships between the variables in the data. From the scatterplot below, we can tell that there are some predictors like *Murder* seems to be strongly related to *Life Expectancy*. Others like *Area* and *Income* seem to be moderately or weakly related.  
 
 ```{r}
@@ -42,7 +42,7 @@ cor(dat)
 
 Secondly, we perform variable selection using stepwise regression, including AIC and partial F test, and the best subsets regression to determine the predictors. The results of our AIC test, partial F test, and adjusted $R^2$ criterion chooses four predictors: *Murder*, *HS Grad*, *Frost*, and *Population*. The Mallows’ $C_p$ criterion gives similar result except excluding the fourth predictor *Population*. Therefore, we decide our model to be ***Life Exp ~ Murder + HS Grad + Frost + Population***.  
 
-#### 3.2 Diagnostic Checks and Transformation
+#### **3.2 Diagnostic Checks and Transformation**
 Thirdly, we check the LINE conditions for this model. We will not be checking the independence assumption, since we are not given data related to time order.  
 
 ![plot08](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/126-regression/image/plot08.png?raw=true)
@@ -59,7 +59,7 @@ studentized residuals and studentized deleted (or externally studentized) residu
 are larger than 3 in absolute value. Thus, there are no unusual Y observations. After computing
 the hat values, we find that none of the points has higher hat value than $\frac{3p}{n} = 0.3$. Therefore, there are no outliers or leverage points. And we will not need to investigate for any potentially influential points. Our model has met the LINE conditions.  
 
-#### 3.3 Interpretation
+#### **3.3 Interpretation**
 We are now able to observe our model with 4 predictors: *Murder*, *HS Grad*, *Frost*, *log(Population)*.
 ***Life Expectancy = −0.29*Murder + 0.0546*HSGrad − 0.051*Frost + 0.24*log(Population)***
 
