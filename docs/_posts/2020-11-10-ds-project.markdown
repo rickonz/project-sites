@@ -24,7 +24,7 @@ In this project, we will focus on exploring the relationship between students' a
 4. Can we predict the placement of a student? 
 
 ### 3. Data and Method
-#### 3.1 Data
+#### **3.1 Data**
 The data set is found in kaggle.com: [Campus Recruitment](https://www.kaggle.com/benroshan/factors-affecting-campus-placement/tasks?taskId=735)
 
 The data set is under CC0: Public Domain license. It consists of placement and academic performance data of students in Jain University Bangalore. It includes: 
@@ -52,7 +52,7 @@ The data is drawn from previous students at Jain University Bangalore, which is 
 
 *The data set is well structured except that there are 67 null values in the salary section because of the non-placement of candidates. We will fill them with zero after we finish exploratory analysis to avoid influencing our data visualization and further analysis.  
 
-#### 3.2 Method
+#### **3.2 Method**
 We will first examine the relationship between different variables using exploratory data analysis, mainly between different performance variables and employment or salary, from which we could quickly and clearly visualize the relationships. By analyzing relationships and patterns from visualizations, we would be able to get initial insights for our question 1 and 2.  
 
 Then, given there are many categorical variables, we use one hot encoding to give each of them binary representations, in order to proceed further analysis and inferential models.  
@@ -66,7 +66,7 @@ We would fit salary with multiple linear regression model, since salary is a con
 Next we will apply logistic regression model for determining the *status*, since it is a binary target variable which could not be predicted appropriately with linear regression model. We will adjust the *class_weight}* parameter in order to avoid bias in prediction, because the proportion of placed and unplaced student in our data set is not fifty to fifty. With the result of the fitted model, we could compute confusion matrix and create visualization to check the accuracy of the model.
 
 ### 4. Analysis, Results and Interpretation
-#### 4.1 What factors play important roles in employment?
+#### **4.1 What factors play important roles in employment?**
 We begin our analysis by first looking at the distribution of students in different areas of study and genders. From Figure 1, we can see that males students are two times more than females students in our data set. The popularity of different degrees tends to be the same among both males and females. In undergraduate, almost 70 percent of the students study 'Comm&Mgmt', and the most of the rest of students are in Sci&Tech. In MBA, the number of students in MktGFin are about 10 percent higher than those in Mkt&HR field.
 
 ![Areas of Study by Gender](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/ds100-placement/image/visualization%20(3).png?raw=true) 
@@ -94,7 +94,7 @@ As shown in figure 6, higher bachelor's percentage indicates more likelihood of 
 
 From the above visualization, we observe that work experience, areas of study in undergraduate and MBA and bacholer's percentage show more importance in the placement of employment.
 
-#### 4.2 How does degree and percentage related to salary?
+#### **4.2 How does degree and percentage related to salary?**
 Next, we continue to examine the factors that influence the salary. From figure 7 and 8, we do not see areas of study and percentage in undergraduate and MBA an effect on salary, since the bar graph reflect generally same amount of mean salary for each areas of study and the scatter plot does not show an obvious linear relationship between salary and both percentage. However, an interesting to notice in scatter plot is that there are a few outliers in scatter plot with very high salary. A few males students with low percentage in bachelor's MBA percentage but high salary. A few females with high bachelor's and MBA percentage but do not stand out in salary.
 
 
@@ -102,7 +102,7 @@ Next, we continue to examine the factors that influence the salary. From figure 
 
 ![Percentage v.s. Salary v.s Gender](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/ds100-placement/image/visualization%20(10).png?raw=true)
 
-#### 4.3 Can we predict a student’s salary?
+#### **4.3 Can we predict a student’s salary?**
 Since we do not observe significant pattern related to salary visually, we then use principle component analysis to find out if there is influential factor on salary. After using one hot encoding, we transform all the categorical variables into binary form. Then we use singular value decomposition with salary as the target variable with principle components number set to 5, and plot the first 2 principle components as oppose to target variable, salary.
 
 --- PC1, PC2 v.s. Target Variable - visualization (14).png ---
@@ -120,7 +120,7 @@ However, we could still try to fit a multiple linear regression model to examine
 
 --- Fitted v.s. True value -  visualization (21).png ---
 
-#### 4.4 Can we predict the placement of a student?
+#### **4.4 Can we predict the placement of a student?**
 However, we indeed find some factors that are influencing the likelihood of being employed. Thus, we could apply logistic regression to predict placement status of students. From what we learned from 5.1, we choose bachelor's degree percentage, work experience, gender, bachelor's degree type and MBA specialization as our predictors, and status as target variables. Using logistic regression model in sci-kit learn package to fit our data, we are able to get the result confusion matrix [[ 19,  48],[  9, 139]]). We compute the probability of four kinds of result in confusion matrix and plot a heat map as figure 12 where we can visualize it more clearly. In this model, we have probability of 0.26 in true negative, 0.05 in false negative, 0.16 in false positive and 0.53 in true positive result. In general, our model is of approximately 79 percent accuracy, which predict most placement correctly. 
 
 ![Comfusion Matrix](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/ds100-placement/image/visualization%20(19).png?raw=true)
