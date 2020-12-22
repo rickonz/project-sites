@@ -7,7 +7,9 @@ categories: Projects
 ---
 
 
-We will analyze the average energy index of song tracks on Spotify from 1921-2020. We explore the energy characteristic of songs over 100 years and apply time series techniques such as data transformation, model identification, diagnostic checking and data forecasting to analyze the the trend of the energy of song tracks. We discover that the song tracks are getting increasingly energetic over time in general and derive a time series model that allow us to forecast the average energy index in the next following years.
+We will analyze the average energy index of song tracks on Spotify from 1921-2020, explore the energy characteristic of songs over 100 years and apply time series techniques such as data transformation, model identification, diagnostic checking and data forecasting to analyze the the trend of the energy of song tracks.     
+
+We discover that the song tracks are getting increasingly energetic over time in general and derive a time series model that allow us to forecast the average energy index in the next following years.
 
 
 ### 1. Introduction
