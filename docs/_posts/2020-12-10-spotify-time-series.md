@@ -18,10 +18,10 @@ We are interested in analyzing the trend of the level of energy of songs over a 
 Eventually, we fit the derived model into original dataset to make predictions on the average energy index for incoming years. In general, we are albe to predict the trend of the song track energy and obtain estimates close to the true value.
 
 ### 2. Time Series Analysis
-#### 2.1 Exploratory Data Analysis
+#### **2.1 Exploratory Data Analysis**
 We begin our analysis by plotting the time series and examining the main features of the graph. We plot the average energy index of song tracks over 1921-2020 which gives us 100 observations. 
 
-![fig01](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig01.jpg?raw=true)
+![fig01](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig01.png?raw=true)
 
 We split our dataset to a trainning dataset with 95 observations and a validation dataset with last 5 observations. Examing the graph from the training set, we see a clear positive linear trend: the average energy index increases over the years. We do not observe any obvious seasonality in the graph. However, the first 30 observation seems to have a more constant mean and smaller variance comparing to the following data.
 
@@ -29,41 +29,41 @@ We split our dataset to a trainning dataset with 95 observations and a validatio
 
 Then, we check the histogram and ACF graph to detect the need for any transformation or differencing. The histogram of the training data is somewhat not symmetric, while the ACF remain large at different lags. Therefore, we decide to use box-cox transformation to further stablize the variance and remove the trend of the data.
 
-![fig03](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig03.jpg?raw=true)
+![fig03](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig03.png?raw=true)
 
-![fig04](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig04.jpg?raw=true)
+![fig04](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig04.png?raw=true)
 
 The lambda value we derive from the Box-Cox transformation is 1.27 which is very close to 1, suggesting us keep using the original data.
 
-![fig05](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig01.jpg?raw=true)
+![fig05](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig01.png?raw=true)
 
-![fig06](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig06.jpg?raw=true)
+![fig06](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig06.png?raw=true)
 
 
 The histogram of the original and transformed data also do not exhibit much difference, and the variance of the original and transformed data is 0.0175 and 0.027 respectively. Since transformation does not lower the variance significantly and 1 is within the confidence interval of lambda, we decide not to transform and use the original data. 
 
-![fig07](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig07.jpg?raw=true)
+![fig07](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig07.png?raw=true)
 
 By our previous observation and the decomposition of the data, there is a positive linear trend in our original time series data. To remove the trend, we difference the data and compare the variance before and after.
 
-![fig08](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig08.jpg?raw=true)
+![fig08](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig08.png?raw=true)
 
 The data differenced at lag 1 yield a variance of 0.00087, which is significantly lower than that of the original data. We plot the de-trended data and the time series exhibit no trend and seasonality. 
 
-![fig09](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig09.jpg?raw=true)
+![fig09](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig09.png?raw=true)
 
 We continoue to check the ACF and histogram of the data. Comparing the original and differenced ACF plot, the ACF of the detrended data decays corresponds to a stationary process. The histogram of the data after differenced at lag 1 also looks symmetric and Gaussian. Therefore, it is appropraite to use our original data differenced at lag 1 to proceed for further model identification.
 
-![fig10](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig10.jpg?raw=true)
+![fig10](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig10.png?raw=true)
 
 
-#### 2.2 Model Identification
+#### **2.2 Model Identification**
 We plot the ACF and PACF of our modified data. We find ACF is outside of the confidence interval at lag 1,3,6 and PACF is outside of the confidence interval at lag 1 and 2. Therefore, we suggest ARIMA model with p = 1, 3, 6 and q = 1, 2 to be our candidate models.
 
-![fig11](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig11.jpg?raw=true)
+![fig11](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig11.png?raw=true)
 
 
-#### 2.3 Model Estimation
+#### **2.3 Model Estimation**
 By computing the AICc value of each candidate models, we get a table of models with each $p$ and $q$ respectively:
 ```
      p q      AICc
@@ -157,28 +157,28 @@ At this point, we conclude our candidate model A to be ARIMA(6,1,1): $$(1+0.2314
 and candidate model B to be ARIMA(6,1,2):
 $$(1 + 0.5342 B - 0.1713 B^2 - 0.2227 B^4 + 0.3637 B^6)(1 - B) X_t = (1 - 0.9717 B + 0.4637 B^2 ) Z_t $$.
 
-#### 2.4 Model Diagnostic
+#### **2.4 Model Diagnostic**
 Next step, we check the stationarity and invertibility of both models. 
 We plot the roots of polynomials of both the MA and AR part of the model A. All the roots are outside of the unit circle, which means the model is stationary and invertible. We plot the same graph for model B. The result shows that model B is also stationary and invertible.
 
-![fig12](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig12.jpg?raw=true)
+![fig12](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig12.png?raw=true)
 
-![fig13](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig13.jpg?raw=true)
+![fig13](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig13.png?raw=true)
 
 We then and perform more diagnostic checking on the residuals of model A and B. First we look at model A. 
 There is no trend, no seasonality or visible variance change in its residual plot. The histogram is almost Gaussian and the normal Q-Q plot looks good except for 2 data points at the tail. We verify its normality by using Shapiro-Wilk test. And it does pass the test with p-value 0.03914 < 0.05 at 95% confidence level.
 
 We also perform Box-Pierce test, Box-jung test, and Mcleod-Li test to detect any linear and non-linear correlation between residuals. The model passed three test with p-value: 0.1242, 0.09391, and 0.4296 respectively.
 
-![fig14](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig14.jpg?raw=true)
+![fig14](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig14.png?raw=true)
 
-![fig15](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig15.jpg?raw=true)
+![fig15](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig15.png?raw=true)
 
-![fig16](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig16.jpg?raw=true)
+![fig16](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig16.png?raw=true)
 
 Moreover, we check that all the ACF and PCF of the residuals of model A are within the confidence interval and can be counted as zeros. Fitting residuals to AR(0), we get $\hat{\sigma_z}^2 = 0.0006107$ which means the residuals resemble $WN$. Even though the other aspect of model A are have good behavior, it does not pass the test for normality of residuals. Thus, model A is not ideal for forecasting.
 
-![fig17](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig17.jpg?raw=true)
+![fig17](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig17.png?raw=true)
 
 ```
 > ar(res1, aic = TRUE, order.max = NULL, method = c("yule-walker"))
@@ -194,11 +194,11 @@ We then examine the diagnostic checking results for model B. The plot of residua
 
 Checking the test results formodel B, it passes Sharpiro-Wilk test with p-value 0.06824, better than model A does. It also passes other three test with p-value 0.3277, 0.2797, 0.3383 for Box-Pierce test, Box-jung test, and Mcleod-Li test respectively as they are all greater than 0.05.
 
-![fig18](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig17.jpg?raw=true)
+![fig18](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig18.png?raw=true)
 
-![fig19](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig17.jpg?raw=true)
+![fig19](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig19.png?raw=true)
 
-![fig20](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig17.jpg?raw=true)
+![fig20](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig20.png?raw=true)
 
 ```
 > shapiro.test(res2)  
@@ -232,9 +232,9 @@ X-squared = 11.251, df = 10, p-value = 0.3383
 
 The ACF and PACF of residuals in model B also fall in the confidence interval which can be treated as zero. And the residuals resember WN with $\hat{\sigma_z}^2 =0.0005911$.
 
-![fig21](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig21.jpg?raw=true)
+![fig21](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig21.png?raw=true)
 
-```{r}
+```
 > ar(res2, aic = TRUE, order.max = NULL, method = c("yule-walker"))
 
 Call:
@@ -254,9 +254,9 @@ We conclude our data is free of seasonality by examing original data and ACF of 
 
 We plot the periodogram for the data and residuals of our model. and does not detect any frequencies. There seems to have spikes at 0.01 and 0.03, however, the corresponding period indicated by this frequency would be 100 and 33 years, which is not reasonable since we only have data for past 100 years. Therefore, this does not provides us extra insight on the seasonality of the data. The periodogram of the residuals does not have a dominant frequency neither.
 
-![fig22](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig22.jpg?raw=true)
+![fig22](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig22.png?raw=true)
 
-![fig23](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig23.jpg?raw=true)
+![fig23](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig23.png?raw=true)
 
 We also apply Fisher's test on the residuals for the presence of hidden periodicities with unspecified frequency. The result 0.9606491 passes the test, which indicates that no periodicities detected. We then use Komolgorov-Smirnov test for cumulative periodogram of residual.The following graph shows that our residuals passed the test since our test statistics are within the boundaries. These indicate our residual resemble Gaussian white noise resulted from a well fitted model.
 
@@ -265,7 +265,7 @@ We also apply Fisher's test on the residuals for the presence of hidden periodic
 [1] 0.9606491
 ```
 
-![fig24](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig23.jpg?raw=true)
+![fig24](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig23.png?raw=true)
 
 
 ### 4. Data Forecasting
@@ -273,7 +273,7 @@ Based on the model we drived above, we fit our model ARIMA(6,1,2):
 $$(1 + 0.5342 B - 0.1713 B^2 - 0.2227 B^4 + 0.3637 B^6)(1 - B) X_t = (1 - 0.9717 B + 0.4637 B^2 ) Z_t $$ 
 with the training data with 95 observations and make prediction on the next 5 observations. From the forecasting graph, we are able to see that our model correctly predict the negative trend of the engergy index and the prediction is relatively close to the true value. However, our confidence interval fail to catch all the future values. 
 
-![fig25](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig25.jpg?raw=true)
+![fig25](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig25.png?raw=true)
 
 There are one or two out of the total five data points are outside the interval. The inaccuracy here might be due to the fisrt 20 - 30 observations, which exhibit relatively stationary trend comparing to the following positive linear trend. Those data are conclude from the song track from roughly 1921-1950, where the world is undergoing an unsual time due to the instability of society, such as wars, revolutions... The amount of song track data for those period of time we have is also limited comparing to the data for later years.
 
