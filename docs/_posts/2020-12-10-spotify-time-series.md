@@ -7,20 +7,18 @@ categories: Projects
 ---
 
 
-### 1.Abstract
-
 In this project, we will analyze the average energy index of song tracks on Spotify from 1921-2020. We explore the energy characteristic of songs over 100 years and apply time series techniques such as data transformation, model identification, diagnostic checking and data forecasting to analyze the the trend of the energy of song tracks. We discover that the song tracks are getting increasingly energetic over time in general and derive a time series model that allow us to forecast the average energy index in the next following years.
 
 
-### 2. Introduction
+### 1. Introduction
 In this project, we analyze the average energy index of song tracks on Spotify from 1921-2020. This dataset is derived from [_kaggle public dataset_](https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks). The contributor of this dataset collects the data from Spotify API, where the level of energy of each song track is rated by the algorithm developed by Spotify developers. Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale.
 
 We are interested in analyzing the trend of the level of energy of songs over a large period of time. The analysis is helpful for understanding how music has developed and shaped in the last 100 years. We use various vtime series techniques to detect the trend and seasonality, including graphing histogram, ACF and PACF, as well as spectral analysis. We also performe data transformation, model estimation, and residual analysis for building forecasting model. 
 
 Eventually, we fit the derived model into original dataset to make predictions on the average energy index for incoming years. In general, we are albe to predict the trend of the song track energy and obtain estimates close to the true value.
 
-### 3. Time Series Analysis
-#### 3.1 Exploratory Data Analysis
+### 2. Time Series Analysis
+#### 2.1 Exploratory Data Analysis
 We begin our analysis by plotting the time series and examining the main features of the graph. We plot the average energy index of song tracks over 1921-2020 which gives us 100 observations. 
 
 ![fig01](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig01.jpg?raw=true)
@@ -59,13 +57,13 @@ We continoue to check the ACF and histogram of the data. Comparing the original 
 ![fig10](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig10.jpg?raw=true)
 
 
-#### 3.2 Model Identification
+#### 2.2 Model Identification
 We plot the ACF and PACF of our modified data. We find ACF is outside of the confidence interval at lag 1,3,6 and PACF is outside of the confidence interval at lag 1 and 2. Therefore, we suggest ARIMA model with p = 1, 3, 6 and q = 1, 2 to be our candidate models.
 
 ![fig11](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig11.jpg?raw=true)
 
 
-#### 3.3 Model Estimation
+#### 2.3 Model Estimation
 By computing the AICc value of each candidate models, we get a table of models with each $p$ and $q$ respectively:
 ```
      p q      AICc
@@ -159,7 +157,7 @@ At this point, we conclude our candidate model A to be ARIMA(6,1,1): $$(1+0.2314
 and candidate model B to be ARIMA(6,1,2):
 $$(1 + 0.5342 B - 0.1713 B^2 - 0.2227 B^4 + 0.3637 B^6)(1 - B) X_t = (1 - 0.9717 B + 0.4637 B^2 ) Z_t $$.
 
-#### 3.4 Model Diagnostic
+#### 2.4 Model Diagnostic
 Next step, we check the stationarity and invertibility of both models. 
 We plot the roots of polynomials of both the MA and AR part of the model A. All the roots are outside of the unit circle, which means the model is stationary and invertible. We plot the same graph for model B. The result shows that model B is also stationary and invertible.
 
@@ -250,7 +248,7 @@ To summarize, model B perform better than model A. Model B has a slightly lower 
 $$(1 + 0.5342 B - 0.1713 B^2 - 0.2227 B^4 + 0.3637 B^6)(1 - B) X_t = (1 - 0.9717 B + 0.4637 B^2 ) Z_t $$
 for data forecasting.
 
-### 4. Spectral Analysis
+### 3. Spectral Analysis
 
 We conclude our data is free of seasonality by examing original data and ACF of differenced data. Before we make final data forecasting, we check the seasonality again with spectral analysis in case there is undetected seasonality within the data. 
 
@@ -270,7 +268,7 @@ We also apply Fisher's test on the residuals for the presence of hidden periodic
 ![fig24](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig23.jpg?raw=true)
 
 
-### 5. Data Forecasting
+### 4. Data Forecasting
 Based on the model we drived above, we fit our model ARIMA(6,1,2): 
 $$(1 + 0.5342 B - 0.1713 B^2 - 0.2227 B^4 + 0.3637 B^6)(1 - B) X_t = (1 - 0.9717 B + 0.4637 B^2 ) Z_t $$ 
 with the training data with 95 observations and make prediction on the next 5 observations. From the forecasting graph, we are able to see that our model correctly predict the negative trend of the engergy index and the prediction is relatively close to the true value. However, our confidence interval fail to catch all the future values. 
@@ -284,11 +282,11 @@ $$(1 + 0.5342 B - 0.1713 B^2 - 0.2227 B^4 + 0.3637 B^6)(1 - B) X_t = (1 - 0.9717
 are able to give approximate forecasting the engergy index for future song tracks. 
 
 
-### 6. Conclusion 
+### 5. Conclusion 
 In summary, we examine the trend and seasonality and apply transformation and differencing method to the original data. We identify the candidate models by with ACF, PACF, and spectral analysis. We also perform diagnostic checking and determine the final forecasting model. With the derived model. We are able to predict the general trend and approximate value of the energy level of song tracks in the future.
 
-### 7. Appendix
+### 6. Appendix
 [Appendix.R](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/Appendix.R)  
 
-[Spotify Time Series Analysis.pdf](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/Appendix.R)
+[Spotify Time Series Analysis.pdf](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274 time series/Appendix.R)
 
