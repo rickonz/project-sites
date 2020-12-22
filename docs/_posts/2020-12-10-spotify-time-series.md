@@ -11,6 +11,8 @@ We will analyze the average energy index of song tracks on Spotify from 1921-202
 
 We discover that the song tracks are getting increasingly energetic over time in general and derive a time series model that allow us to forecast the average energy index in the next following years.
 
+![fig00](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig00.jpg?raw=true)
+
 
 ### 1. Introduction
 In this project, we analyze the average energy index of song tracks on Spotify from 1921-2020. This dataset is derived from [_kaggle public dataset_](https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks). The contributor of this dataset collects the data from Spotify API, where the level of energy of each song track is rated by the algorithm developed by Spotify developers. Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale.

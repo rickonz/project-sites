@@ -63,7 +63,7 @@ the hat values, we find that none of the points has higher hat value than $\frac
 We are now able to observe our model with 4 predictors: *Murder*, *HS Grad*, *Frost*, *log(Population)*.
 ***Life Expectancy = −0.29*Murder + 0.0546*HSGrad − 0.051*Frost + 0.24*log(Population)***
 
-```{r}
+```
 > summary(mod.trans)
 
 Call:
