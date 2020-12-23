@@ -68,7 +68,7 @@ We plot the ACF and PACF of our modified data. We find ACF is outside of the con
 
 
 #### **2.3 Model Estimation**
-By computing the AICc value of each candidate models, we get a table of models with each $p$ and $q$ respectively:
+By computing the AICc value of each candidate models, we get a table of models with each p and q respectively:
 ```
      p q      AICc
 [1,] 1 1 -405.0506
@@ -80,9 +80,9 @@ By computing the AICc value of each candidate models, we get a table of models w
 [3,] 6 2 -410.0100
 ```
 
-From the table above, we choose $ARIMA(6,1,1)$ and $ARIMA(6,1,2)$ for further validation, since they have the lowest AICc value. We also check for $ARIMA(3,1,2)$ as it has the lowest AICc value among the rest of the candidates and has less parameters.
+From the table above, we choose ARIMA(6,1,1) and ARIMA(6,1,2) for further validation, since they have the lowest AICc value. We also check for ARIMA(3,1,2) as it has the lowest AICc value among the rest of the candidates and has less parameters.
 
-First we take a look at $ARIMA(3,1,2)$, we get the coefficients for each parameters after fitting our data into $ARIMA(3,1,2)$. The zero is within the confidence interval of the coefficient of $AR3$, we fix it to be 0 and try the model again. In this way, we get the lowest AICc of $ARIMA(3,1,2)$ to be -409.8522.
+First we take a look at ARIMA(3,1,2), we get the coefficients for each parameters after fitting our data into ARIMA(3,1,2). The zero is within the confidence interval of the coefficient of AR3, we fix it to be 0 and try the model again. In this way, we get the lowest AICc of ARIMA(3,1,2) to be -409.8522.
 
 ```
 Call:
@@ -108,7 +108,7 @@ sigma^2 estimated as 0.0006476:  log likelihood = 211.41,  aic = -412.82
 [1] -409.8522
 ```
 
-Then, we perform the same analysis to the model $ARIMA(6,1,1)$ and $ARIMA(6,1,2)$. The lowest AICc we get for $ARIMA(6,1,1)$ is -413.0761; and that of $ARIMA(6,1,2)$ is -413.1787. Comparing the results of the three candidate models, the lowest AICc value of $ARIMA(6,1,1)$ and $ARIMA(6,1,2)$, after fixing some coefficient to be zero, are still very close. However, $ARIMA(3,1,2)$ does not give a lower or close AICc over $ARIMA(6,1,1)$ and $ARIMA(6,1,2)$. Therefore, we proceed $ARIMA(6,1,1)$ and $ARIMA(6,1,2)$ for further examination.
+Then, we perform the same analysis to the model ARIMA(6,1,1) and ARIMA(6,1,2). The lowest AICc we get for ARIMA(6,1,1) is -413.0761; and that of ARIMA(6,1,2) is -413.1787. Comparing the results of the three candidate models, the lowest AICc value of ARIMA(6,1,1) and ARIMA(6,1,2), after fixing some coefficient to be zero, are still very close. However, ARIMA(3,1,2) does not give a lower or close AICc over ARIMA(6,1,1) and ARIMA(6,1,2). Therefore, we proceed ARIMA(6,1,1) and ARIMA(6,1,2) for further examination.
 
 ```
 
@@ -159,7 +159,7 @@ sigma^2 estimated as 0.0005848:  log likelihood = 215.66,  aic = -417.32
 
 At this point, we conclude our candidate model A to be ARIMA(6,1,1): $$(1+0.2314B+0.1806B^3-0.1438B^4+0.3437B^6)(1-B)X_t=(1-0.6102B)Z_t $$ 
 and candidate model B to be ARIMA(6,1,2):
-$$(1 + 0.5342 B - 0.1713 B^2 - 0.2227 B^4 + 0.3637 B^6)(1 - B) X_t = (1 - 0.9717 B + 0.4637 B^2 ) Z_t $$.
+$$(1 + 0.5342 B - 0.1713 B^2 - 0.2227 B^4 + 0.3637 B^6)(1 - B) X_t = (1 - 0.9717 B + 0.4637 B^2 ) Z_t $$
 
 #### **2.4 Model Diagnostic**
 Next step, we check the stationarity and invertibility of both models. 
@@ -180,7 +180,7 @@ We also perform Box-Pierce test, Box-jung test, and Mcleod-Li test to detect any
 
 ![fig16](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig16.png?raw=true)
 
-Moreover, we check that all the ACF and PCF of the residuals of model A are within the confidence interval and can be counted as zeros. Fitting residuals to AR(0), we get $\hat{\sigma_z}^2 = 0.0006107$ which means the residuals resemble $WN$. Even though the other aspect of model A are have good behavior, it does not pass the test for normality of residuals. Thus, model A is not ideal for forecasting.
+Moreover, we check that all the ACF and PCF of the residuals of model A are within the confidence interval and can be counted as zeros. Fitting residuals to AR(0), we get $$\hat{\sigma_z}^2 = 0.0006107$$ which means the residuals resemble WN. Even though the other aspect of model A are have good behavior, it does not pass the test for normality of residuals. Thus, model A is not ideal for forecasting.
 
 ![fig17](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig17.png?raw=true)
 
@@ -234,7 +234,7 @@ data:  res2^2
 X-squared = 11.251, df = 10, p-value = 0.3383
 ```
 
-The ACF and PACF of residuals in model B also fall in the confidence interval which can be treated as zero. And the residuals resember WN with $\hat{\sigma_z}^2 =0.0005911$.
+The ACF and PACF of residuals in model B also fall in the confidence interval which can be treated as zero. And the residuals resember WN with $$\hat{\sigma_z}^2 =0.0005911$$.
 
 ![fig21](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig21.png?raw=true)
 
@@ -281,9 +281,7 @@ with the training data with 95 observations and make prediction on the next 5 ob
 
 There are one or two out of the total five data points are outside the interval. The inaccuracy here might be due to the fisrt 20 - 30 observations, which exhibit relatively stationary trend comparing to the following positive linear trend. Those data are conclude from the song track from roughly 1921-1950, where the world is undergoing an unsual time due to the instability of society, such as wars, revolutions... The amount of song track data for those period of time we have is also limited comparing to the data for later years.
 
-To fit a model that could make better prediction on the future value, we might consider exclude those data, however, since we only have 100 observations in total in this dataset, it is not appropriate to do so. Overall, our time series model ARIMA(6,1,2): 
-$$(1 + 0.5342 B - 0.1713 B^2 - 0.2227 B^4 + 0.3637 B^6)(1 - B) X_t = (1 - 0.9717 B + 0.4637 B^2 ) Z_t $$ 
-are able to give approximate forecasting the engergy index for future song tracks. 
+To fit a model that could make better prediction on the future value, we might consider exclude those data, however, since we only have 100 observations in total in this dataset, it is not appropriate to do so. Overall, our time series model ARIMA(6,1,2) are able to give approximate forecasting the engergy index for future song tracks. 
 
 
 ### 5. Conclusion 
