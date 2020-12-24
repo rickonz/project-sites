@@ -73,4 +73,4 @@ Relevant Coursework:
 ## Appendix
 
 [张文轩简历.pdf](https://github.com/rickonz/rickonz.github.io/blob/master/docs/%E5%BC%A0%E6%96%87%E8%BD%A9%E7%AE%80%E5%8E%86.pdf)  
-[Rickon Zhang - Resume.pdf](https://github.com/rickonz/rickonz.github.io/blob/master/docs/RICKON(WENXUAN)%20ZHANG-%20Resume.pdf)
+[Rickon Zhang - Resume.pdf](https://github.com/rickonz/rickonz.github.io/blob/master/docs/Rickon(Wenxuan)%20Zhang%20-%20Resume.pdf)
