@@ -269,7 +269,7 @@ We also apply Fisher's test on the residuals for the presence of hidden periodic
 [1] 0.9606491
 ```
 
-![fig24](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig23.png?raw=true)
+![fig24](https://github.com/rickonz/rickonz.github.io/blob/master/project-docs/274-time-series/image/fig24.png?raw=true)
 
 
 ### 4. Data Forecasting
