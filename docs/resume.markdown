@@ -25,7 +25,7 @@ Relevant Coursework:
 
 - Collaborated in a scrum development team to ensure the quality of upgrading reporting framework with agile methodologies, enhancing the performance of AppFolio’s cloud-based SaaS products. 
 - Tested 30+ web front end report filters using manual and automated regression testing that led to the completion of the conversion from using jQuery filter to React filter with assured quality
-- Applied exploratory, black box, and white box testing on the migration of nearly 200 reports; promptly identified, isolated, and traced bugs that contributed to less than 5 customer-reported bugs over 150+ reports migration. 
+- Applied exploratory, black box, and white box testing on the migration of nearly 200 reports; promptly identified, isolated, and traced bugs that contributed to less than 3 customer-reported bugs over 150+ reports migration. 
 - Evaluated bug reports and analyzed user data in Rollbar and New Relic; communicated across engineering and customer support team to address bugs in a timely manner, lower the impact of the bugs to customers as much as possible
 - Tested web application with accessibility mindsets referring to WCAG (Web Content Accessibility Guideline), ensuring users with diverse disabilities have equal access to provided features
 
