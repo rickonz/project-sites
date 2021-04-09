@@ -14,6 +14,7 @@ Relevant Coursework:
 -  Statistical Data Science
 -  Bayesian Data Analysis
 -  Time Series
+-  Machine Learning
 -  Advanced Linear Algebra
 -  Numerical Analysis
 -  Ordinary Differential Equation
